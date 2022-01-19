@@ -29,11 +29,11 @@ function makeGallery(gallery) {
 gallery.addEventListener('click', onImgClick);
 const instance = basicLightbox.create(`<img class="modal-img" src="">`, {
   onShow: (instance) => {
-    window.addEventListener('keydown', onEscClick);
+    window.addEventListener('keydown', onEscKeyClick);
   },
 
   onClose: (instance) => {
-    window.removeEventListener('keydown', onEscClick);
+    window.removeEventListener('keydown', onEscKeyClick);
   },
 });
 
@@ -65,7 +65,7 @@ function onImgClick(evt) {
 
 // const elem = instance.element()
 
-function onEscClick(evt) {
+function onEscKeyClick(evt) {
   if (evt.key === 'Escape') {
     instance.close();
     return;
